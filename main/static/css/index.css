@@ -1,7 +1,31 @@
 header {
-    background-color: black;
+    height: 80px;
+    background-color: #666666;
+    display: flex;
+    gap: 100px;
+    padding-left: 80px;
+    align-items: center;
 }
 
-a {
-    color: red;
+header a {
+    width: 50px;
+    color: white;
+    text-decoration: none;
+}
+
+.box {
+    width: 300px;
+    border: white solid 2px;
+    background-color: #666666;
+}
+
+header a:hover {
+    font-size: 15pt;
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    height: 100vh;
+    background-color: #555555;
 }

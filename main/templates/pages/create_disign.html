@@ -1,0 +1,15 @@
+{% extends "main/index.html" %}
+
+{% load bootstrap4 %}
+
+{% block title %} Удаление пользователя {% endblock %}
+
+{% block content %}
+    <h1 style="color: white">Создать заявку</h1>
+
+    <form method="post" enctype="multipart/form-data" style="color: white; display: flex; flex-direction: column">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button style="width: 150px; background: none; border: 1px white solid; color: white" type="submit">Создать заявку</button>
+    </form>
+{% endblock %}

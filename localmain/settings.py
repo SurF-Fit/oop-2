@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -6,7 +7,7 @@ SECRET_KEY = 'django-insecure-tmtu38k4s5=1$rmcl4yq=vc2u=f%r3ygl)!l-#g4p#qyinbuyz
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -15,8 +16,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'main.apps.MainConfig',
+    'bootstrap4',
+    'django_cleanup',
+    'easy_thumbnails',
+    'captcha',
 ]
+
+AUTH_USER_MODEL = 'main.AdvUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -28,13 +35,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'djangoProject.urls'
+ROOT_URLCONF = 'localmain.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'main/templates']
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'main/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -47,7 +53,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'djangoProject.wsgi.application'
+WSGI_APPLICATION = 'localmain.wsgi.application'
 
 
 # Database
@@ -81,7 +87,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tomsk'
 
 USE_I18N = True
 

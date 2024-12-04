@@ -1,35 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="faf71619-e4cd-4489-8746-60b4252cd73a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/djangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/djangoProject.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/localmain/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/localmain/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/localmain/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/localmain/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/localmain/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/form.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/static/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/static/img/гарри поттер и филосовский камень(обложка).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/main/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/pages/create_disign.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/pages/delete_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/pages/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/pages/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/pages/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/pages/register_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/pages/register_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/utilities.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/validadors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2pjSBsmRmwnZqfGszWSrSIUUzQI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kulmenev/djangoProject/main/static/img&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kulmenev\djangoProject\main\static\img" />
+      <recent name="C:\Users\kulmenev\djangoProject" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kulmenev\djangoProject\main\templates\main" />
+      <recent name="C:\Users\kulmenev\djangoProject\main\templates" />
+      <recent name="C:\Users\kulmenev\djangoProject\main0" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="djangoProject" type="Python.DjangoServer" factoryName="Django server">
       <module name="djangoProject" />
@@ -72,7 +121,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733277859956</updated>
-      <workItem from="1733277880803" duration="32000" />
+      <workItem from="1733277880803" duration="847000" />
+      <workItem from="1733279046953" duration="14998000" />
+      <workItem from="1733300744958" duration="5014000" />
+      <workItem from="1733305856687" duration="301000" />
     </task>
     <servers />
   </component>

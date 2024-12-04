@@ -1,0 +1,45 @@
+{% extends "main/index.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %} Профиль пользователя {% endblock %}
+
+{% block content %}
+    <div style="display: flex; flex-direction: column; width: 500px; gap: 10px">
+       <h2 style="color: white">Профиль пользователя {{ user.username }}</h2>
+       {% if user.first_name and user.last_name %}
+           <p style="color: white">Здравствуйте, {{ user.first_name }} {{ user.last_name }} </p>
+       {% else %}
+           <p style="color: white">Здравствуйте! </p>
+       {% endif %}
+        <a style="text-decoration: none; color: white; border: white 1px solid; padding: 5px; width: 250px; text-align: center" href="{% url 'main:create_disign' %}">Оставить заявку на дизайн</a>
+        <form method="get">
+            <label style="color: white;" for="status">Фильтр по статусу:</label>
+            <select name="status" id="status">
+                <option value="status_1" {% if status_filter == 'status_1' %}selected{% endif %}>Новая</option>
+                <option value="status_2" {% if status_filter == 'status_2' %}selected{% endif %}>Принята в работу</option>
+                <option value="status_3" {% if status_filter == 'status_3' %}selected{% endif %}>Выполнено</option>
+            </select>
+            <button type="submit">Применить фильтр</button>
+        </form>
+        <h2 style="color: white">Ваши заявки</h2>
+            <div style="display: flex; gap: 50px">
+                {% for design in designs %}
+                    <div style="border: 2px white solid; width: 350px; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 10px">
+                        <strong style="color: white">Название заявки: {{ design.name }}</strong>
+                        <p style="color: white">Статус: {{ design.get_status_display }}</p>
+                        <p style="color: white">Создана: {{ design.created_at }}</p>
+                        <img src="{{ design.image.url }}" alt="{{ design.name }}" width="300" height="250px">
+                        <strong style="color: white">Описание</strong>
+                        <p style="color: white">{{ design.description }}</p>
+                        <form method="post" action="{% url 'main:delete_design' design.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button style="width: 150px; background: none; border: 1px white solid; color: white" type="submit" onclick="return confirm('Вы уверены, что хотите удалить эту заявку?')" >Удалить</button>
+                         </form>
+                    </div>
+                    {% empty %}
+                            <p style="color: white">Вы не оставляли заявки или не выбрали фильтр</p>
+                {% endfor %}
+            </div>
+    </div>
+{% endblock %}
