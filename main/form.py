@@ -14,6 +14,7 @@ class FormDesign(forms.ModelForm):
         fields = ['name', 'description', 'category', 'image']
 
 class RegisterUserForm(forms.ModelForm):
+    username = forms.CharField(label='ФИО', max_length=30)
     email = forms.EmailField(required=True,
                             label='Адрес электронной почты')
     password1 = forms.CharField(label='Пароль',
@@ -24,6 +25,18 @@ class RegisterUserForm(forms.ModelForm):
                                 help_text='Повторите тот же самый пароль еще раз')
     send_messages = forms.BooleanField(required=True,
                                         help_text='Согласие на обработку персональных данных')
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        valid_characters = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯа-бвгдеёжзийклмнопрстуфхцчшщъыьэюя '
+
+        if not all(char in valid_characters for char in username):
+            raise ValidationError('ФИО может содержать только кириллические буквы, пробелы и дефисы.')
+
+        if not any(char in 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯа' for char in username):
+            raise ValidationError('ФИО должно содержать хотя бы одну кириллическую букву.')
+
+        return username
 
     def clean_password1(self):
         password1 = self.cleaned_data['password1']

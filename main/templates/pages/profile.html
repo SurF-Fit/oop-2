@@ -26,7 +26,7 @@
             <div style="display: flex; gap: 50px">
                 {% for design in designs %}
                     <div style="border: 2px white solid; width: 350px; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 10px">
-                        <strong style="color: white">Название заявки: {{ design.name }}</strong>
+                        <strong style="color: white">Название заявки: {{ design.name.login }}</strong>
                         <p style="color: white">Статус: {{ design.get_status_display }}</p>
                         <p style="color: white">Создана: {{ design.created_at }}</p>
                         <img src="{{ design.image.url }}" alt="{{ design.name }}" width="300" height="250px">
