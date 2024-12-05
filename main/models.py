@@ -33,6 +33,12 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('main:category-detail', args=[str(self.id)])
+
+    class Meta:
+        pass
+
 class InteriorDesign(models.Model):
     user = models.ForeignKey(AdvUser, on_delete=models.CASCADE, related_name='interior_designs')
     name = models.CharField(max_length=40)

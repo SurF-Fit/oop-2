@@ -51,7 +51,7 @@ class AdvUserAdmin(admin.ModelAdmin):
         ('username',),
         ('email',),
         ('is_active',),
-        ('is_superuser',),
+        ('is_staff',),
         ('last_login', 'date_joined')
     )
     readonly_fields = ('last_login', 'date_joined',)

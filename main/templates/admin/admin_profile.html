@@ -6,13 +6,8 @@
 
 {% block content %}
     <div style="display: flex; flex-direction: column; width: 500px; gap: 10px">
-       <h2 style="color: white">Профиль пользователя {{ user.username }}</h2>
-       {% if user.first_name and user.last_name %}
-           <p style="color: white">Здравствуйте, {{ user.first_name }} {{ user.last_name }} </p>
-       {% else %}
-           <p style="color: white">Здравствуйте! </p>
-       {% endif %}
-        <a style="text-decoration: none; color: white; border: white 1px solid; padding: 5px; width: 250px; text-align: center" href="{% url 'main:create_disign' %}">Оставить заявку на дизайн</a>
+       <h2 style="color: white">Здраствуйте повелитель! {{ user.username }}</h2>
+        <a style="text-decoration: none; color: white; border: white 1px solid; padding: 5px; width: 250px; text-align: center" href="{% url 'main:category' %}">Категории</a>
         <form method="get">
             <label style="color: white;" for="status">Фильтр по статусу:</label>
             <select name="status" id="status">
@@ -22,10 +17,11 @@
             </select>
             <button type="submit">Применить фильтр</button>
         </form>
-        <h2 style="color: white">Ваши заявки</h2>
-            <div style="display: flex; gap: 50px">
+        <h2 style="color: white">Все заявки</h2>
+            <div style="width: 90vw ;display: flex; gap: 50px; flex-wrap: wrap; padding-bottom: 20px">
                 {% for design in designs %}
                     <div style="border: 2px white solid; width: 350px; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 10px">
+                        <p style="color: white; text-align: left; width: 300px;">Пользователь: {{ design.user.username }}</p>
                         <strong style="color: white">Название заявки: {{ design.name }}</strong>
                         <p style="color: white">Статус: {{ design.get_status_display }}</p>
                         <p style="color: white">Создана: {{ design.created_at }}</p>
@@ -34,11 +30,11 @@
                         <p style="color: white">{{ design.description }}</p>
                         <form method="post" action="{% url 'main:delete_design' design.id %}" style="display:inline;">
                             {% csrf_token %}
-                            <button style="width: 150px; background: none; border: 1px white solid; color: white" type="submit" onclick="return confirm('Вы уверены, что хотите удалить эту заявку?')" >Удалить</button>
-                         </form>
+                            <button style="width: 150px; background: none; border: 1px white solid; color: white" type="submit" onclick="return" >Удалить</button>
+                        </form>
                     </div>
                     {% empty %}
-                            <p style="color: white">Вы не оставляли заявки или не выбрали фильтр</p>
+                            <p style="color: white">Никто не оставлял заявки или не выбран фильтр</p>
                 {% endfor %}
             </div>
     </div>

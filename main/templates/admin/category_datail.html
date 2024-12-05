@@ -1,0 +1,27 @@
+{% extends "main/index.html" %}
+
+{% csrf_token %}
+
+{% block content %}
+    <h1 style="color: white">Название категории: {{ category.name }}</h1>
+    <p style="color: white">Описание: {{ category.description }}</p>
+        <form method="post" action="{% url 'main:delete_category' category.id %}" style="display:inline;">
+        {% csrf_token %}
+        <button style="width: 200px; background: none; border: 1px white solid; color: white" type="submit" onclick="return" >Удалить категорию</button>
+    </form>
+    <div style="width: 90vw ;display: flex; gap: 50px; flex-wrap: wrap; padding-bottom: 20px; margin-top: 20px">
+        {% for design in designs %}
+            <div style="border: 2px white solid; width: 350px; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 10px">
+                <p style="color: white; text-align: left; width: 300px;">Пользователь: {{ design.user.username }}</p>
+                <strong style="color: white">Название заявки: {{ design.name }}</strong>
+                <p style="color: white">Статус: {{ design.get_status_display }}</p>
+                <p style="color: white">Создана: {{ design.created_at }}</p>
+                <img src="{{ design.image.url }}" alt="{{ design.name }}" width="300" height="250px">
+                <strong style="color: white">Описание</strong>
+                <p style="color: white">{{ design.description }}</p>
+            </div>
+            {% empty %}
+                    <p style="color: white">Вы не оставляли заявки или не выбрали фильтр</p>
+        {% endfor %}
+    </div>
+{% endblock %}

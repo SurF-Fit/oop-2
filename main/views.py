@@ -1,13 +1,12 @@
-from .models import AdvUser, InteriorDesign
+from .models import AdvUser, InteriorDesign, Category
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView, DeleteView
+from django.views.generic import CreateView, TemplateView, DeleteView, DetailView, ListView
 from .form import RegisterUserForm , FormDesign
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-from django.core.signing import BadSignature
 from .utilities import signer
 
 def index(request):
@@ -68,9 +67,36 @@ class BBLogoutView(LoginRequiredMixin, LogoutView):
     template_name = 'pages/logout.html'
 
 def profile(request):
-    status_filter = request.GET.get('status', 'Новая')
-    designs = InteriorDesign.objects.filter(user=request.user, status=status_filter)
-    return render(request, 'pages/profile.html', {'designs': designs})
+    user = request.user
+    if user.is_staff:
+        status_filter = request.GET.get('status', 'Новая')
+        designs = InteriorDesign.objects.filter(status=status_filter)
+        return render(request, 'admin/admin_profile.html', {'designs': designs})
+    else:
+        status_filter = request.GET.get('status', 'Новая')
+        designs = InteriorDesign.objects.filter(user=request.user, status=status_filter)
+        return render(request, 'pages/profile.html', {'designs': designs})
+
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'admin/category_list.html'
+
+class CategoryDetailView(DetailView):
+    model = Category
+    template_name = 'admin/category_datail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['designs'] = InteriorDesign.objects.filter(category=self.object)
+        return context
+
+def delete_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    design = get_object_or_404(InteriorDesign.objects.filter(category=category))
+    category.delete()
+    design.delete()
+    messages.success(request, 'Категория и все связанные с ней проекты успешно удалены.')
+    return redirect('main:category')
 
 class DeleteUserView(LoginRequiredMixin, DeleteView):
     model = AdvUser
