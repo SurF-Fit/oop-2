@@ -33,15 +33,21 @@
                             <p style="color: white">{{ design.comment }}</p>
                         {% endif %}
                         {% if design.status == 'status_1' %}
-                            <form method="POST" action="{% url 'main:change_status' designs_id=design.id %}">
+                            <form method="POST" enctype="multipart/form-data" action="{% url 'main:change_status' designs_id=design.id %}">
                                 {% csrf_token %}
                                 <select name="new_status" id="new_status" onchange="toggleCommentField(this)">
                                     <option value="status_2" {% if design.status == 'status_2' %}selected{% endif %}>Принята в работу</option>
                                     <option value="status_3" {% if design.status == 'status_3' %}selected{% endif %}>Выполнено</option>
                                 </select>
+
                                 <div id="commentField" style="display: none;">
                                     <label for="comment" style="color: white">Добавьте комментарий:</label>
                                     <textarea name="comment" id="comment" placeholder="Комментарий"></textarea>
+                                </div>
+
+                                <div id="imageFiled" style="display: none;">
+                                    <label for="image" style="color: white">Добавьте фото готовой работы:</label>
+                                    <input type="file" name="image" id="image">
                                 </div>
                                 <button type="submit">Изменить статус</button>
                             </form>

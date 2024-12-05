@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="faf71619-e4cd-4489-8746-60b4252cd73a" name="Changes" comment="create admin profile and delete category's">
-      <change afterPath="$PROJECT_DIR$/main/static/js/admin_profile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/templates/admin/design_datail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/templates/admin/design_list.html" afterDir="false" />
+    <list default="true" id="faf71619-e4cd-4489-8746-60b4252cd73a" name="Changes" comment="create function change status in admin profile - &quot;Принята в работу&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/localmain/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/localmain/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/static/js/admin_profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/js/admin_profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/admin/admin_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/admin/admin_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/admin/category_datail.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/admin/category_datail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/admin/design_datail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/admin/design_list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +152,7 @@
       <workItem from="1733300744958" duration="5014000" />
       <workItem from="1733305856687" duration="11579000" />
       <workItem from="1733363009081" duration="13876000" />
-      <workItem from="1733389533023" duration="11855000" />
+      <workItem from="1733389533023" duration="17817000" />
     </task>
     <task id="LOCAL-00001" summary="complete example 2.1 2.2">
       <option name="closed" value="true" />
@@ -180,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733395980841</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="create function change status in admin profile - &quot;Принята в работу&quot;">
+      <option name="closed" value="true" />
+      <created>1733401669308</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733401669308</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +207,7 @@
     <MESSAGE value="complete example 2.1 2.2" />
     <MESSAGE value="complete email message" />
     <MESSAGE value="create admin profile and delete category's" />
-    <option name="LAST_COMMIT_MESSAGE" value="create admin profile and delete category's" />
+    <MESSAGE value="create function change status in admin profile - &quot;Принята в работу&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="create function change status in admin profile - &quot;Принята в работу&quot;" />
   </component>
 </project>

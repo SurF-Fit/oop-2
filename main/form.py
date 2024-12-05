@@ -8,6 +8,9 @@ from .validadors import validate_image
 class CommentForm(forms.Form):
     comment = forms.CharField(widget=forms.Textarea, required=False, label="Комментарий")
 
+class ImageForm(forms.Form):
+    image = forms.ImageField(validators=[validate_image])
+
 class FormDesign(forms.ModelForm):
     user = forms.ImageField
     image = forms.ImageField(validators=[validate_image])

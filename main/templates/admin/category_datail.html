@@ -5,7 +5,7 @@
 {% block content %}
     <h1 style="color: white">Название категории: {{ category.name }}</h1>
     <p style="color: white">Описание: {{ category.description }}</p>
-        <form method="post" action="{% url 'main:delete_category' category.id %}" style="display:inline;">
+    <form method="post" action="{% url 'main:delete_category' category.id %}" style="display:inline;">
         {% csrf_token %}
         <button style="width: 200px; background: none; border: 1px white solid; color: white" type="submit" onclick="return" >Удалить категорию</button>
     </form>

@@ -1,7 +1,9 @@
+from django.db.transaction import commit
+
 from .models import AdvUser, InteriorDesign, Category
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, DeleteView, DetailView, ListView
-from .form import RegisterUserForm , FormDesign, CommentForm
+from .form import RegisterUserForm , FormDesign, CommentForm, ImageForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -79,16 +81,23 @@ def profile(request):
 
 def change_status(request, designs_id):
     design = get_object_or_404(InteriorDesign, id=designs_id)
-    new_status = request.POST.get('new_status')
-    valid_statuses = ['status_2', 'status_3']
-    if new_status in valid_statuses:
-        if new_status == 'status_2':
-            form = CommentForm(request.POST)
-            if form.is_valid():
-                design.comment = form.cleaned_data.get('comment', '')
-        design.status = new_status
-        design.save()
-        messages.success(request, 'Статус заявки изменен')
+    if request.method == 'POST':
+        new_status = request.POST.get('new_status')
+        valid_statuses = ['status_2', 'status_3']
+        if new_status in valid_statuses:
+            if new_status == 'status_2':
+                form = CommentForm(request.POST)
+                if form.is_valid():
+                    design.comment = form.cleaned_data.get('comment', '')
+            elif new_status == 'status_3':
+                form = ImageForm(request.POST, request.FILES)
+                if form.is_valid():
+                    new_image = form.cleaned_data.get('image', None)
+                    if new_image:
+                        design.image = new_image
+            design.status = new_status
+            design.save()
+            messages.success(request, 'Статус заявки изменен')
     return redirect('main:profile')
 
 class CategoryListView(ListView):
