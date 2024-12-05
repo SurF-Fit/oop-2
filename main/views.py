@@ -1,7 +1,7 @@
 from .models import AdvUser, InteriorDesign, Category
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, DeleteView, DetailView, ListView
-from .form import RegisterUserForm , FormDesign
+from .form import RegisterUserForm , FormDesign, CommentForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -77,6 +77,20 @@ def profile(request):
         designs = InteriorDesign.objects.filter(user=request.user, status=status_filter)
         return render(request, 'pages/profile.html', {'designs': designs})
 
+def change_status(request, designs_id):
+    design = get_object_or_404(InteriorDesign, id=designs_id)
+    new_status = request.POST.get('new_status')
+    valid_statuses = ['status_2', 'status_3']
+    if new_status in valid_statuses:
+        if new_status == 'status_2':
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                design.comment = form.cleaned_data.get('comment', '')
+        design.status = new_status
+        design.save()
+        messages.success(request, 'Статус заявки изменен')
+    return redirect('main:profile')
+
 class CategoryListView(ListView):
     model = Category
     template_name = 'admin/category_list.html'
@@ -97,6 +111,14 @@ def delete_category(request, category_id):
     design.delete()
     messages.success(request, 'Категория и все связанные с ней проекты успешно удалены.')
     return redirect('main:category')
+
+class DesignListView(ListView):
+    model = InteriorDesign
+    template_name = 'admin/design_list.html'
+
+class DesignDetailView(DetailView):
+    model = InteriorDesign
+    template_name = 'admin/design_datail.html'
 
 class DeleteUserView(LoginRequiredMixin, DeleteView):
     model = AdvUser

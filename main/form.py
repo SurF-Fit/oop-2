@@ -5,6 +5,9 @@ from django.core.exceptions import ValidationError
 from .models import user_registrated, InteriorDesign
 from .validadors import validate_image
 
+class CommentForm(forms.Form):
+    comment = forms.CharField(widget=forms.Textarea, required=False, label="Комментарий")
+
 class FormDesign(forms.ModelForm):
     user = forms.ImageField
     image = forms.ImageField(validators=[validate_image])

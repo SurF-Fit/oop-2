@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.dispatch import Signal
+from pkg_resources import require
+
 from .utilities import send_activation_notification
 from .validadors import validate_image
 from django.urls import reverse
@@ -43,6 +45,7 @@ class InteriorDesign(models.Model):
     user = models.ForeignKey(AdvUser, on_delete=models.CASCADE, related_name='interior_designs')
     name = models.CharField(max_length=40)
     description = models.CharField(max_length=300)
+    comment = models.CharField(max_length=300, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     STATUS_CHOICES = [
         ('status_1', 'Новая'),

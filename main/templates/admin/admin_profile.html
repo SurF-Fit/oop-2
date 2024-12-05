@@ -17,7 +17,7 @@
             </select>
             <button type="submit">Применить фильтр</button>
         </form>
-        <h2 style="color: white">Все заявки</h2>
+        <h2 style="color: white">Все  по выбранному фильтру: </h2>
             <div style="width: 90vw ;display: flex; gap: 50px; flex-wrap: wrap; padding-bottom: 20px">
                 {% for design in designs %}
                     <div style="border: 2px white solid; width: 350px; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 10px">
@@ -28,6 +28,24 @@
                         <img src="{{ design.image.url }}" alt="{{ design.name }}" width="300" height="250px">
                         <strong style="color: white">Описание</strong>
                         <p style="color: white">{{ design.description }}</p>
+                        {% if design.status == 'status_2' %}
+                            <strong style="color: white">Комментарий от дизайнера</strong>
+                            <p style="color: white">{{ design.comment }}</p>
+                        {% endif %}
+                        {% if design.status == 'status_1' %}
+                            <form method="POST" action="{% url 'main:change_status' designs_id=design.id %}">
+                                {% csrf_token %}
+                                <select name="new_status" id="new_status" onchange="toggleCommentField(this)">
+                                    <option value="status_2" {% if design.status == 'status_2' %}selected{% endif %}>Принята в работу</option>
+                                    <option value="status_3" {% if design.status == 'status_3' %}selected{% endif %}>Выполнено</option>
+                                </select>
+                                <div id="commentField" style="display: none;">
+                                    <label for="comment" style="color: white">Добавьте комментарий:</label>
+                                    <textarea name="comment" id="comment" placeholder="Комментарий"></textarea>
+                                </div>
+                                <button type="submit">Изменить статус</button>
+                            </form>
+                        {% endif %}
                         <form method="post" action="{% url 'main:delete_design' design.id %}" style="display:inline;">
                             {% csrf_token %}
                             <button style="width: 150px; background: none; border: 1px white solid; color: white" type="submit" onclick="return" >Удалить</button>
@@ -38,4 +56,5 @@
                 {% endfor %}
             </div>
     </div>
+    <script src="{% static 'js/admin_profile.js' %}"></script>
 {% endblock %}

@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="faf71619-e4cd-4489-8746-60b4252cd73a" name="Changes" comment="complete email message">
-      <change afterPath="$PROJECT_DIR$/main/templates/admin/admin_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/templates/admin/category_datail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/templates/admin/category_list.html" afterDir="false" />
+    <list default="true" id="faf71619-e4cd-4489-8746-60b4252cd73a" name="Changes" comment="create admin profile and delete category's">
+      <change afterPath="$PROJECT_DIR$/main/static/js/admin_profile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/admin/design_datail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/admin/design_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/localmain/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/localmain/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/pages/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/pages/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/admin/admin_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/admin/admin_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
     </list>
@@ -45,7 +46,7 @@
           <entry type="LOCAL">
             <value>
               <list>
-                <branch-info repo="$PROJECT_DIR$" source="example-2.1-2.2" />
+                <branch-info repo="$PROJECT_DIR$" source="example-2.3" />
               </list>
             </value>
           </entry>
@@ -54,7 +55,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="example-2.1-2.2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,21 +81,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;example-2.1-2.2&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kulmenev/djangoProject/main/static/img&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "example-2.3",
+    "last_opened_file_path": "C:/Users/kulmenev/djangoProject/main/static/img",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.language",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kulmenev\djangoProject\main\static\img" />
@@ -153,7 +154,7 @@
       <workItem from="1733300744958" duration="5014000" />
       <workItem from="1733305856687" duration="11579000" />
       <workItem from="1733363009081" duration="13876000" />
-      <workItem from="1733389533023" duration="6018000" />
+      <workItem from="1733389533023" duration="11855000" />
     </task>
     <task id="LOCAL-00001" summary="complete example 2.1 2.2">
       <option name="closed" value="true" />
@@ -171,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733376555618</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="create admin profile and delete category's">
+      <option name="closed" value="true" />
+      <created>1733395980841</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733395980841</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +200,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="complete example 2.1 2.2" />
     <MESSAGE value="complete email message" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete email message" />
+    <MESSAGE value="create admin profile and delete category's" />
+    <option name="LAST_COMMIT_MESSAGE" value="create admin profile and delete category's" />
   </component>
 </project>

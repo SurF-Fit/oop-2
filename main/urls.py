@@ -9,6 +9,7 @@ app_name = 'main'
 urlpatterns = [
     re_path(r'^$', views.index, name='index'),
     re_path(r'^accounts/profile/$', views.profile, name='profile'),
+    re_path(r'^accounts/profile/change_status/(?P<designs_id>\d+)/$', views.change_status, name='change_status'),
     re_path(r'^accounts/profile/delete/$', views.DeleteUserView.as_view(), name='profile_delete'),
     re_path(r'^accounts/profile/create_disign/$', views.create_design, name='create_disign'),
     re_path(r'^design/delete/(?P<design_id>\d+)/$', views.delete_design, name='delete_design'),
