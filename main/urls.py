@@ -17,4 +17,5 @@ urlpatterns = [
     re_path(r'^accounts/logout/$', views.BBLogoutView.as_view(), name='logout'),
     re_path(r'^accounts/register/$', views.RegisterUserView.as_view(), name='register'),
     re_path(r'^accounts/register/done/$', views.RegisterDoneView.as_view(), name='register_done'),
+    re_path(r'^accounts/register/activate/(?P<sign>.+)/$', views.user_activate, name='register_activate'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

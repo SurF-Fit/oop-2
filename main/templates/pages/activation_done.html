@@ -1,0 +1,9 @@
+{% extends "main/index.html" %}
+
+{% block title %} Активация выполнена {% endblock %}
+
+{% block content %}
+    <h2 style="color: white">Активация</h2>
+    <p style="color: white">Активация пользователя завершена</p>
+    <p style="color: white"><a style="color: white" href="{% url 'main:login' %}">Войти на сайт</a></p>
+{% endblock %}

@@ -5,6 +5,14 @@ from .utilities import send_activation_notification
 from .validadors import validate_image
 from django.urls import reverse
 
+
+user_registrated = Signal(['instance'])
+
+def user_registrated_dispatcher(sender, **kwargs):
+    send_activation_notification(kwargs['instance'])
+
+user_registrated.connect(user_registrated_dispatcher)
+
 class AdvUser(AbstractUser):
     login = models.CharField(max_length=40, verbose_name='Логин')
     is_activated = models.BooleanField(default=True, db_index=True,
@@ -17,13 +25,6 @@ class AdvUser(AbstractUser):
 
     class Meta(AbstractUser.Meta):
         pass
-
-user_registrated = Signal(['instance'])
-
-def user_registrated_dispatcher(sender, **kwargs):
-    send_activation_notification(kwargs['instance'])
-
-user_registrated.connect(user_registrated_dispatcher)
 
 class Category(models.Model):
     name = models.CharField(max_length=100)

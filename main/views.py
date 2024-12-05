@@ -7,6 +7,8 @@ from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.core.signing import BadSignature
+from .utilities import signer
 
 def index(request):
     designs = InteriorDesign.objects.all()[:4]
@@ -39,6 +41,15 @@ def delete_design(request, design_id):
         messages.error(request, 'Вы не можете удалить эту заявку.')
 
     return redirect('main:profile')
+
+def user_activate(request, sign):
+    username = signer.unsign(sign)
+    user = get_object_or_404(AdvUser, username=username)
+    template = 'pages/activation_done.html'
+    user.is_activated = True
+    user.is_active = True
+    user.save()
+    return render(request, template)
 
 class RegisterUserView(CreateView):
     model = AdvUser
