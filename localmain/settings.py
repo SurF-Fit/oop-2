@@ -18,9 +18,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'bootstrap4',
-    'django_cleanup',
-    'easy_thumbnails',
-    'captcha',
 ]
 
 AUTH_USER_MODEL = 'main.AdvUser'

@@ -1,0 +1,38 @@
+.slider-container {
+    display: flex;
+    width: 26%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 20%;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+.buttonslider {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 10px;
+    width: 77vw;
+}
+
+.buttonslider > button {
+    border-radius: 100px;
+    width: 42px;
+    color: white;
+    text-align: center;
+    font-size: 20pt;
+    border: 1px solid white;
+    background: none;
+}
