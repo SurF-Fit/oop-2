@@ -58,10 +58,12 @@
                                 <button type="submit">Изменить статус</button>
                             </form>
                         {% endif %}
+                    {% if design.status != 'status_3' %}
                         <form method="post" action="{% url 'main:delete_design' design.id %}" style="display:inline;">
                             {% csrf_token %}
                             <button style="width: 150px; background: none; border: 1px white solid; color: white" type="submit" onclick="return" >Удалить</button>
                         </form>
+                    {% endif%}
                     </div>
                     {% empty %}
                             <p style="color: white">Никто не оставлял заявки или не выбран фильтр</p>
