@@ -25,7 +25,13 @@
                         <strong style="color: white">Название заявки: {{ design.name }}</strong>
                         <p style="color: white">Статус: {{ design.get_status_display }}</p>
                         <p style="color: white">Создана: {{ design.created_at }}</p>
-                        <img src="{{ design.image.url }}" alt="{{ design.name }}" width="300" height="250px">
+                        {% if design.status == 'status_3' %}
+                            <strong style="color: white">Готовое фото проекта:</strong>
+                            <img src="{{ design.image.url }}" alt="{{ design.name }}" width="300" height="250px">
+                        {% endif %}
+                        {% if design.status == 'status_1' or design.status == 'status_2'%}
+                            <img src="{{ design.image.url }}" alt="{{ design.name }}" width="300" height="250px">
+                        {% endif %}
                         <strong style="color: white">Описание</strong>
                         <p style="color: white">{{ design.description }}</p>
                         {% if design.status == 'status_2' %}

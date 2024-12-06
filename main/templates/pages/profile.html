@@ -32,10 +32,12 @@
                         <img src="{{ design.image.url }}" alt="{{ design.name }}" width="300" height="250px">
                         <strong style="color: white">Описание</strong>
                         <p style="color: white">{{ design.description }}</p>
+                        {% if design.status == 'status_1' %}
                         <form method="post" action="{% url 'main:delete_design' design.id %}" style="display:inline;">
                             {% csrf_token %}
                             <button style="width: 150px; background: none; border: 1px white solid; color: white" type="submit" onclick="return confirm('Вы уверены, что хотите удалить эту заявку?')" >Удалить</button>
                          </form>
+                        {% endif %}
                     </div>
                     {% empty %}
                             <p style="color: white">Вы не оставляли заявки или не выбрали фильтр</p>

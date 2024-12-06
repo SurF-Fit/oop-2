@@ -1,8 +1,7 @@
 from django import forms
-from .models import AdvUser
+from .models import AdvUser, Category, user_registrated, InteriorDesign
 from django.contrib.auth import password_validation
 from django.core.exceptions import ValidationError
-from .models import user_registrated, InteriorDesign
 from .validadors import validate_image
 
 class CommentForm(forms.Form):
@@ -10,6 +9,14 @@ class CommentForm(forms.Form):
 
 class ImageForm(forms.Form):
     image = forms.ImageField(validators=[validate_image])
+
+class FormCategory(forms.ModelForm):
+    name = forms.CharField(widget=forms.Textarea, required=False, label="Название новой категории")
+    description = forms.CharField(widget=forms.Textarea, required=False, label="Описание категории")
+
+    class Meta:
+        model = Category
+        fields = ['name', 'description']
 
 class FormDesign(forms.ModelForm):
     user = forms.ImageField

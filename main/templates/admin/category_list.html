@@ -1,10 +1,10 @@
 {% extends "main/index.html" %}
 
 {% block content %}
-    <h1 style="color: white">Категории</h1>
-
+    <h1 style="color: white; margin-bottom: 30px">Категории</h1>
+    <a style="text-decoration: none; color: white; border: white 1px solid; padding: 5px; width: 250px; text-align: center" href="{% url 'main:create_сategory' %}">Создать новую категорию</a>
     {% if category_list %}
-    <ul>
+    <ul style="color: white; margin-top: 30px">
 
       {% for category in category_list %}
       <li style="color: white">

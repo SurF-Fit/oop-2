@@ -3,7 +3,7 @@ from django.db.transaction import commit
 from .models import AdvUser, InteriorDesign, Category
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, DeleteView, DetailView, ListView
-from .form import RegisterUserForm , FormDesign, CommentForm, ImageForm
+from .form import RegisterUserForm , FormDesign, CommentForm, ImageForm, FormCategory
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -113,23 +113,32 @@ class CategoryDetailView(DetailView):
         context['designs'] = InteriorDesign.objects.filter(category=self.object)
         return context
 
-def delete_category(request, category_id):
-    category = get_object_or_404(Category, id=category_id)
-    design = get_object_or_404(InteriorDesign.objects.filter(category=category))
-    category.delete()
-    design.delete()
-    messages.success(request, 'Категория и все связанные с ней проекты успешно удалены.')
-    return redirect('main:category')
-
-class DesignListView(ListView):
-    model = InteriorDesign
-    template_name = 'admin/design_list.html'
-
-class DesignDetailView(DetailView):
-    model = InteriorDesign
-    template_name = 'admin/design_datail.html'
-
 class DeleteUserView(LoginRequiredMixin, DeleteView):
     model = AdvUser
     template_name = 'main/delete_user.html'
     success_url = reverse_lazy('main:index')
+
+def create_сategory(request):
+    if request.method == 'POST':
+        form = FormCategory(request.POST)
+        if form.is_valid():
+            design = form.save(commit=False)
+            design.save()
+            return redirect('main:category')
+    else:
+        form = FormCategory()
+
+    return render(request, 'admin/create_category.html', {'form': form})
+
+
+def delete_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    designs = InteriorDesign.objects.filter(category=category)
+
+    if designs.exists():
+        designs.delete()
+        messages.success(request, 'Категория и все связанные с ней проекты успешно удалены.')
+    else:
+        messages.success(request, 'Категория успешно удалена.')
+    category.delete()
+    return redirect('main:category')

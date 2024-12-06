@@ -19,6 +19,7 @@ urlpatterns = [
     re_path(r'^accounts/register/done/$', views.RegisterDoneView.as_view(), name='register_done'),
     re_path(r'^accounts/register/activate/(?P<sign>.+)/$', views.user_activate, name='register_activate'),
     re_path(r'^category/$', views.CategoryListView.as_view(), name='category'),
+    re_path(r'^category/create_сategory/$', views.create_сategory, name='create_сategory'),
     re_path(r'^category/(?P<pk>\d+)$', views.CategoryDetailView.as_view(), name='category-detail'),
     re_path(r'^category/delete/(?P<category_id>\d+)/$', views.delete_category, name='delete_category'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

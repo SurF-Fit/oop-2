@@ -49,6 +49,7 @@ class AdvUserAdmin(admin.ModelAdmin):
     list_filter = (NoactivatedFilter,)
     fields = (
         ('username',),
+        ('login',),
         ('email',),
         ('is_active',),
         ('is_staff',),
